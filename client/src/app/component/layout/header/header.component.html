@@ -1,0 +1,22 @@
+<p>
+    <mat-toolbar  class="custom-toolbar">
+      <mat-toolbar-row>
+        <img src="assets/logo.png" alt="Hutech logo" class="brand-logo">
+        <span class="spacers"></span>
+        <button mat-button>Button 1</button>
+        <button mat-button>Button 2</button>
+        <button mat-button (click)="goToNearGarage()">Nhà xe xung quanh</button>
+        <span class="spacer"></span>
+        
+        <button mat-icon-button class="menu-icon" aria-label="Menu" [matMenuTriggerFor]="menu">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" class="custom-menu">
+          <button mat-menu-item>Item 1</button>
+          <button mat-menu-item>Item 2</button>
+          <button mat-menu-item>Item 3</button>
+        </mat-menu>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </p>
+  
