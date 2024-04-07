@@ -7,14 +7,17 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatToolbarModule, MatButtonModule, MatIconModule,MatMenuModule],
+  imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatMenuModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
 })
-
 export class HeaderComponent {
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
   goToNearGarage() {
     this.router.navigateByUrl('/Near_Garage'); // Điều hướng đến trang có route '/page3'
+  }
+
+  goToHome(){
+    this.router.navigateByUrl('/'); // Điều hướng đến trang có route '/page3'
   }
 }
