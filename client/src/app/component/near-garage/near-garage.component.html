@@ -1,1 +1,30 @@
-<p>near-garage works!</p>
+<mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Bãi Giữ Xe Vân Đào</mat-card-title>
+      <mat-card-subtitle>3 Đ. Điện Biên Phủ, Phường 25, Bình Thạnh</mat-card-subtitle>
+    </mat-card-header>
+    <div class="square-image-container">
+      <img mat-card-image src="https://static.tuoitre.vn/tto/i/s626/2015/02/16/2A3AH1Q4.jpg" alt="Photo of a Shiba Inu" class="square-image">
+    </div>
+    <mat-card-content>
+      <p>
+        Bãi giữ xe Vân Đào là một không gian rộng rãi, an toàn và có bảo vệ chuyên nghiệp, đảm bảo an ninh và an toàn cho xe của khách hàng.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="goToCustomLocation()">Go To</button> 
+        <button mat-button (click)="goToLocationMap()">Go Map</button> 
+     
+    </mat-card-actions>
+  </mat-card>
+ <!-- Thêm một iframe với id để có thể truy cập từ component -->
+<div style="width: 100%; height: 400px;">
+    <iframe id="mapIframe"
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy"></iframe>
+  </div>
+  
