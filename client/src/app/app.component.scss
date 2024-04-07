@@ -1,0 +1,11 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Đảm bảo chiều cao tối thiểu bằng màn hình */
+}
+.app-container > .content-container {
+  flex: 1; /* Cho phép <router-outlet> mở rộng chiều cao */
+}
+app-header, app-footer {
+  flex-shrink: 0; /* Không cho phép co giãn (shrink) để đảm bảo chiều cao không thay đổi */
+}
