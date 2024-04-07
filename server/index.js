@@ -12,18 +12,14 @@ const route = require("./routes");
 const server = require("http").Server(app);
 const io = require("socket.io")(server, {
 	cors: {
-		origin: "http://localhost:3000",
+		// origin: "http://localhost:3000", 
+		origin: "http://localhost:4200",
 	},
 });
 require('./sockets/chat')(io);
 
-
-
-// app.use(express.static('images'));
 app.use(express.static('public'));
-// app.use(express.static(path.join("./BE_projMobileApp", "images")));
 const port = 3000;
-// app.use(express.static(path.join(__dirname, "public/images")));
 
 mongoose
 	.connect(process.env.MONGO_URL, {
@@ -55,24 +51,3 @@ server.listen(process.env.PORT || port, () =>
 		`Example app listening on port ${process.env.PORT}!\nhttp://cmd => ipconfig:${process.env.PORT}\nhttp://192.168.1.47:${process.env.PORT}\n(depending on your ipconfig address)`
 	)
 );
-
-///////////////////////////////////////////----------------------------------------------------------------
-// const path = require("path");
-// const express = require("express");
-// const app = express();
-// const server = require("http").Server(app);
-// const io = require("socket.io")(server);
-
-// // server.listen(3000, () => console.log("connected"));
-
-
-// io.on("connection", socket => {
-// 	console.log(`Chat Socket connected: ${socket}`);
-	
-// 	socket.on("join-room", (arg1, arg2) => {
-// 		// socket.emit("join-room-emit", { arg1, arg2 });
-// 		console.log("join-room: ", arg1, arg2);
-// 	});
-	
-// });
-// server.listen(3000, () => console.log("connected"));

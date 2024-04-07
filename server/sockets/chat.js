@@ -13,7 +13,7 @@ const User = require("../models/Users");
 // 	return result;
 // }
 
-module.exports = function (io) {
+module.exports = function (io) { 
 
 	let campusAB = Math.floor(Math.random() * (2001 - 1000) + 1000);
 
@@ -32,11 +32,10 @@ module.exports = function (io) {
 		const decrementInterval = setInterval(() => {
 			const randomDecrement = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
 			campusAB = Math.max(campusAB - randomDecrement, 0); 
-			socket.emit("garage-campus-AB", campusAB);
+			// socket.emit("garage-campus-AB", campusAB);
 		}, 5000);
 
 		setInterval(() => {
-		
 			socket.emit("garage-campus-AB", campusAB);
 		}, 2000);
 
