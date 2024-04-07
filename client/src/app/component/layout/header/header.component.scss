@@ -1,0 +1,21 @@
+.custom-toolbar {
+    display: flex;
+  }
+  
+  .spacer {
+    flex: 1;
+  }
+  .spacers {
+    flex: 0.05;
+  }
+  .brand {
+    margin-left: auto; /* Di chuyển 'Hutech' sang phải cùng */
+  }
+  .brand-logo {
+    max-width: 200px; /* Giới hạn chiều rộng của hình ảnh */
+    height: auto; /* Đảm bảo chiều cao tự động điều chỉnh theo tỉ lệ */
+  }
+  .custom-toolbar {
+    background-color: #ace6a8; /* Màu nền của menu */
+    color: white; /* Màu chữ của menu */
+}

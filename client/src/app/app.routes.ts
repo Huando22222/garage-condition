@@ -1,3 +1,3 @@
 import { Routes } from '@angular/router';
-
-export const routes: Routes = [];
+import { NearGarageComponent } from './component/near-garage/near-garage.component';
+export const routes: Routes = [ { path: 'Near_Garage', component: NearGarageComponent },];
