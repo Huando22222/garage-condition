@@ -18,6 +18,6 @@ export class HeaderComponent {
   }
 
   goToHome(){
-    this.router.navigateByUrl('/'); // Điều hướng đến trang có route '/page3'
+    this.router.navigateByUrl('/'); 
   }
 }
