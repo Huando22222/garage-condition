@@ -1,5 +1,6 @@
 export interface NearGarage {
     _id: string;
+    imageUrl: string;
     name: string;
     address: string;
     description: string;

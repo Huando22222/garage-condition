@@ -35,11 +35,12 @@ module.exports = function (io) {
 			// socket.emit("garage-campus-AB", campusAB);
 		}, 5000);
 
-		setInterval(() => {
-			socket.emit("garage-campus-AB", campusAB);
-		}, 2000);
+		// setInterval(() => {
+		// 	socket.emit("garage-campus-AB", campusAB);
+		// }, 2000);
 
 		socket.on("disconnect", () => {
+			console.log(`disconnect : ${socket.id}` );
 			clearInterval(decrementInterval);
 			clearInterval(interval); 
 		});
