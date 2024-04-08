@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Socket } from 'ngx-socket-io';
+import io from 'socket.io-client';
+const socket = io('http://localhost:3000');
 
 @Injectable({
   providedIn: 'root',
 })
 export class SocketService {
-  constructor(private socket: Socket) {}
+  private socket;
 
-  setupSocketConnection(): void {
-    this.socket.fromEvent('garage-campus-AB').subscribe((data) => {
-        console.log(data);
-    });
+  constructor() {
+    this.socket = io('http://localhost:3000');
+  }
+
+  getSocket() {
+    return this.socket;
   }
 }
