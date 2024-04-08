@@ -1,33 +1,64 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
+import { Store } from '@ngrx/store';
+import { reset, setTicket } from './store/actions/campus-ab.action';
 import { FooterComponent } from './component/layout/footer/footer.component';
 import { HeaderComponent } from './component/layout/header/header.component';
 // import { Socket } from 'ngx-socket-io';
 // import { SocketService } from './service/socket.service';
 ////////////////
+
+import { select } from '@ngrx/store';
+import { selectTicket } from './store/selectors/campus-ab.selector';
+import { AsyncPipe, CommonModule } from '@angular/common';
+
 import io from 'socket.io-client';
+import { Observable } from 'rxjs';
+
+import { NgZone } from '@angular/core';
 const socket = io('http://localhost:3000');
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FooterComponent, HeaderComponent],
+  imports: [
+    RouterOutlet,
+    FooterComponent,
+    HeaderComponent,
+    // CommonModule,
+    AsyncPipe,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  number?: number;
+  private store = inject(Store);
 
-  // constructor(private socket: Socket) {}
-  constructor() { }
+  ticket$: Observable<number>;
+  ticketValue: number = 0;
+  cdRef: any;
+  constructor(private zone: NgZone) {
+    this.ticket$ = this.store.select('ticket');
+  }
+
   ngOnInit(): void {
-    try {
-      socket.on('garage-campus-AB', (data) => {
-        console.log(data);
+    this.ticket$.subscribe((data) => {
+      this.ticketValue = data;
+    });
+
+    socket.on('garage-campus-AB', (data: number) => {
+      console.log('Received random number from server:', data);
+      this.zone.run(() => {
+        // Run this inside the Angular zone
+        this.store.dispatch(setTicket({ ticket: data }));
       });
-    } catch (error) {
-      console.error('Error:', error);
-    }
+      //this.cdRef.detectChanges();
+    });
   }
 }
