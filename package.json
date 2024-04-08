@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@angular/common": "^17.3.3",
+    "@angular/core": "^17.3.3",
+    "@egjs/ngx-flicking": "^4.11.2"
+  }
+}

@@ -20,12 +20,15 @@
   </mat-card> -->
 
   <!-- <app-near-garage-card *ngIf="true" [nearGarage]="nearGarages[0]"></app-near-garage-card> -->
-  <h1> đasdasdsd</h1>
-  <div *ngFor="let garage of nearGarages">
-    <app-near-garage-card [nearGarage]="garage"></app-near-garage-card>
-  </div>
 
-<div style="width: 100%; height: 400px;">
+  <div class="wrap-near-garages">
+    <div class="near-garage-card" *ngFor="let garage of nearGarages">
+      <app-near-garage-card [nearGarage]="garage"></app-near-garage-card>
+    </div>
+  </div>
+  
+  
+  <div style="width: 100%; height: 400px;">
     <iframe 
       id="mapIframe"
       width="100%" 
@@ -35,4 +38,3 @@
       loading="lazy"
     ></iframe>
   </div>
-  
