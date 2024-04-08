@@ -37,8 +37,8 @@ module.exports = function (io) {
 
 		socket.on("disconnect", () => {
 			console.log(`disconnect : ${socket.id}` );
-			clearInterval(decrementInterval);
-			clearInterval(interval); 
+			// clearInterval(decrementInterval);
+			// clearInterval(interval); 
 		});
 	});
 
