@@ -20,4 +20,8 @@ export class HeaderComponent {
   goToHome(){
     this.router.navigateByUrl('/'); 
   }
+  goToEvenPage() {
+    this.router.navigateByUrl('/even'); // Chuyển hướng tới trang "Even"
+  }
 }
+
