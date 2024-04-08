@@ -1,26 +1,79 @@
-
 .example-card {
-    max-width: 400px;
-  }
-  
-  .example-header-image {
-    background-image: url('https://static.tuoitre.vn/tto/i/s626/2015/02/16/2A3AH1Q4.jpg');
-    background-size: cover;
-  }
-  .square-image-container {
-    width: 100%;
-    height: 0;
-    padding-top: 100%; /* Tạo kích thước hình vuông */
-    overflow: hidden; /* Ẩn phần thừa nếu có */
-    position: relative; /* Thiết lập vị trí tương đối để căn chỉnh hình ảnh */
-  }
-  
-  .square-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Đảm bảo hình ảnh không bị biến dạng */
-    position: absolute; /* Thiết lập vị trí tuyệt đối để căn giữa */
-    top: 0;
-    left: 0;
-  }
-  
+  max-width: 400px;
+  border-radius: 8px; /* Rounded corners for the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.example-header-image {
+  background-size: cover;
+  border-top-left-radius: 8px; /* Match the card's top left border radius */
+  border-top-right-radius: 8px; /* Match the card's top right border radius */
+}
+
+.square-image-container {
+  width: 100%;
+  height: 0;
+  padding-top: 100%; /* Create a square shape */
+  overflow: hidden;
+  position: relative;
+}
+
+.square-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-bottom-left-radius: 8px; /* Match the card's bottom left border radius */
+  border-bottom-right-radius: 8px; /* Match the card's bottom right border radius */
+}
+
+/* Style for card header */
+mat-card-header {
+  padding: 12px; /* Add padding to the header */
+}
+
+/* Style for card title */
+mat-card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+/* Style for card subtitle */
+mat-card-subtitle {
+  font-size: 16px;
+  color: #666; /* Darker gray color */
+}
+
+/* Style for card content */
+mat-card-content {
+  padding: 12px; /* Add padding to the content */
+}
+
+/* Style for card actions */
+mat-card-actions {
+  justify-content: flex-end; /* Align actions to the right */
+  padding: 12px; /* Add padding to the actions */
+}
+
+/* Style for card action buttons */
+mat-card-actions button {
+  margin-left: 8px; /* Add spacing between buttons */
+}
+
+.wrap-near-garages {
+  display: flex;
+  flex-direction: row; /* Arrange items horizontally */
+  gap: 20px; /* Add space between cards */
+  margin: 20px;
+}
+
+app-near-garage-card {
+  flex: 1 1 auto; /* Allow the card to grow and shrink */
+  max-width: 400px; /* Limit the maximum width of the card */
+  margin: 20px;
+}
+
+
