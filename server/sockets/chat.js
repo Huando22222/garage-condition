@@ -1,4 +1,3 @@
-// chatSocketManager.js
 const Message = require("../models/Messages");
 const Room = require("../models/Rooms");
 const User = require("../models/Users");
@@ -15,29 +14,26 @@ const User = require("../models/Users");
 
 module.exports = function (io) { 
 
-	let campusAB = Math.floor(Math.random() * (2001 - 1000) + 1000);
+	let campusAB = Math.floor(Math.random() * (1001 - 500) + 500);
 
+	const increaseCampusAB = () => {
+		const randomIncrement = Math.floor(Math.random() * (10 - 2 + 1)) + 2; 
+		campusAB = Math.min(campusAB + randomIncrement, 2000);
+		io.emit("garage-campus-AB", campusAB);
+	};
 
+	const decreaseCampusAB = () => {
+		const randomDecrement = Math.floor(Math.random() * (5 - 1 + 1)) + 1; 
+		campusAB = Math.max(campusAB - randomDecrement, 0); 
+		console.log("Campus AB decrease " + campusAB);
+		io.emit("garage-campus-AB", campusAB);
+	};
 
+	const interval = setInterval(increaseCampusAB, 5000);
+	const decrementInterval = setInterval(decreaseCampusAB, 2000);
 
 	io.on("connection", (socket) => {
 		console.log(`Chat Socket connected: ${socket.id}`);
-
-		const interval = setInterval(() => {
-			const randomIncrement =
-				Math.floor(Math.random() * (10 - 2 + 1)) + 2;
-			campusAB = Math.min(campusAB + randomIncrement, 5000); // Cộng dồn và giới hạn giá trị tối đa là 5000
-		}, 2000);	
-		
-		const decrementInterval = setInterval(() => {
-			const randomDecrement = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
-			campusAB = Math.max(campusAB - randomDecrement, 0); 
-			// socket.emit("garage-campus-AB", campusAB);
-		}, 5000);
-
-		// setInterval(() => {
-		// 	socket.emit("garage-campus-AB", campusAB);
-		// }, 2000);
 
 		socket.on("disconnect", () => {
 			console.log(`disconnect : ${socket.id}` );

@@ -29,4 +29,5 @@ export class GarageConditionComponent {
   mode: ProgressBarMode = 'buffer';
   value = 50;
   bufferValue = 75;
+  
 }

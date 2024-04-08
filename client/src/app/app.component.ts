@@ -12,7 +12,7 @@ const socket = io('http://localhost:3000');
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FooterComponent,HeaderComponent ],
+  imports: [RouterOutlet, FooterComponent, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -30,35 +30,4 @@ export class AppComponent implements OnInit {
       console.error('Error:', error);
     }
   }
-
-  // ngAfterViewInit(): void {
-  //   try {
-  //     this.socketService.setupSocketConnection(); // Sử dụng service để setup kết nối socket
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //   }
-  // }
-
-  // ngOnInit(): void {
-  //   try {
-  //     this.socketService.setupSocketConnection(); // Sử dụng service để setup kết nối socket
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //   }
-  // }
 }
-
-
-// constructor(private socket: Socket) {}
-
-//   ngOnInit(): void {
-//     try {
-//       this.socket.fromEvent('garage-campus-AB').subscribe((data) => {
-//            console.log(data); // In ra giá trị của biến number
-//       });
-//     } catch (error) {
-//       console.error('Error:', error);
-//     }
-//   }
-// }
-
