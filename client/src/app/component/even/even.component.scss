@@ -3,6 +3,30 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+}
+
+#container {
+    display: flex;
+    max-width: 700px;
+    width: 100%;
+}
+
+#eventForm {
+    background-color: #fff;
+    padding: 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+#eventList {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -11,31 +35,13 @@ h1 {
     color: #333;
 }
 
-#eventForm {
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 600px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-#eventForm table {
-    width: 100%;
-}
-
-#eventForm td {
-    padding: 10px;
-
-}
-
 #eventForm input[type="file"],
 #eventForm input[type="text"],
 #eventForm textarea,
 #eventForm input[type="number"],
 #eventForm input[type="datetime-local"],
 #eventForm button {
-    width: calc(100% - 20px);
+    width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -95,4 +101,3 @@ ul {
 #addEventButton:hover {
     background-color: #0056b3;
 }
-

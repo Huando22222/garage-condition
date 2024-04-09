@@ -5,7 +5,8 @@ import { CommonModule } from '@angular/common';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {provideNativeDateAdapter} from '@angular/material/core';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { FormsModule,FormControl } from '@angular/forms';
 // import { BrowserModule } from '@angular/platform-browser';
 // import { FormsModule } from '@angular/forms'; // Import FormsModule
 
@@ -13,26 +14,32 @@ import {provideNativeDateAdapter} from '@angular/material/core';
   selector: 'app-even',
   standalone: true,
   providers: [provideNativeDateAdapter()],
-  imports: [HttpClientModule, CommonModule,MatDatepickerModule,MatInputModule,MatFormFieldModule],
+  imports: [
+    HttpClientModule,
+    CommonModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+  ],
   templateUrl: './even.component.html',
   styleUrl: './even.component.scss',
 })
 export class EVENComponent {
-  title = 'fileUpload';
-  images: File | undefined;
-  currentDate: string;
-  imageUrl: string | null = null;
-  multipleImages = [];
-  // eventName: string | undefined;
-  // eventDescription: string | undefined;
-  // startDate: string | undefined;
-  // endDate: string | undefined;
-  // vehicleCount: string | undefined;
+  // currentDate: string;
+  // multipleImages = [];
 
-  constructor() {
-    const currentYear = new Date().getFullYear();
-    this.currentDate = new Date().toISOString().slice(0, 16);
-    
+  imageUrl: string | null = null;
+  //forms
+  images: File | undefined;
+  eventName: string = '';
+  eventDescription: string = '';
+  eventDate: Date | null = null;
+  vehicleCount: number | null = null;
+
+  constructor(private http: HttpClient) {
+    // const currentYear = new Date().getFullYear();
+    // this.currentDate = new Date().toISOString().slice(0, 16);
   }
 
   ngOnInit() {}
@@ -49,37 +56,49 @@ export class EVENComponent {
       };
     }
   }
- 
-  selectMultipleImage(event: any) {
-    if (event.target?.files.length > 0) {
-      this.multipleImages = event.target.files;
-    }
-  }
+
+  // selectMultipleImage(event: any) {
+  //   if (event.target?.files.length > 0) {
+  //     this.multipleImages = event.target.files;
+  //   }
+  // }
 
   onSubmit() {
     const formData = new FormData();
     if (this.images) {
       formData.append('file', this.images);
     }
-    
 
-    // formData.append('event_name', this.eventName!);
-    // formData.append('description', this.eventDescription!);
-    // formData.append('start_datetime', this.startDate!);
-    // formData.append('end_datetime', this.endDate!);
-    // formData.append('number_of_vehicle', this.vehicleCount!);
+    formData.append('eventName', this.eventName);
+    formData.append('eventDescription', this.eventDescription);
+    if (this.eventDate) {
+      formData.append('eventDate', this.eventDate.toISOString());
+    }
+    // formData.append('end_datetime', this.endDate.toISOString()); // Nếu bạn có end_datetime
+    if (this.vehicleCount !== null) {
+      formData.append('vehicleCount', this.vehicleCount.toString());
+    }
 
-  
-    // this.http.post<any>('http://localhost:3000/event/new', formData).subscribe(
-    //   (res: any) => console.log(res),
-    //   (err: any) => {
-    //     console.log(err);
-    //     console.log('đasaderr');
-    //   }
-    // );
+    this.http.post<any>('http://localhost:3000/event/new', formData).subscribe(
+      (res: any) => {
+        console.log(res);
+        alert('Sự kiện đã được tạo thành công!');
+        this.resetForm();
+      },
+      (err: any) => {
+        console.error(err);
+        alert('Đã có lỗi xảy ra khi tạo sự kiện!');
+      }
+    );
   }
-  
 
+  resetForm() {
+    this.eventName = '';
+    this.eventDescription = '';
+    this.eventDate = null;
+    this.vehicleCount = null;
+    this.imageUrl = null;
+  }
   // onMultipleSubmit() {
   //   const formData = new FormData();
   //   for (let img of this.multipleImages) {

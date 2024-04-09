@@ -1,5 +1,4 @@
 const NearGarage = require('../models/NearGarages');
-const Haha = require("../models/Hahas");
 module.exports = {
 	GetNearGarages: async (req, res) => {
 		try {

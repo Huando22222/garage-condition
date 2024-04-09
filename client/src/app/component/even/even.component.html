@@ -1,146 +1,26 @@
-
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-    display: flex;
-    justify-content: center;
-  }
-
-  #container {
-    display: flex;
-    max-width: 1200px;
-    width: 100%;
-  }
-
-  #eventForm {
-    background-color: #fff;
-    padding: 20px;
-    margin-right: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex: 1;
-  }
-
-  #eventList {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex: 1;
-  }
-
-  h1 {
-    text-align: center;
-    margin-top: 20px;
-    color: #333;
-  }
-
-  #eventForm input[type="file"],
-  #eventForm input[type="text"],
-  #eventForm textarea,
-  #eventForm input[type="number"],
-  #eventForm input[type="datetime-local"],
-  #eventForm button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
-
-  #eventForm button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  #eventForm button:hover {
-    background-color: #0056b3;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .event {
-    background-color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .event img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-
-  .event h2 {
-    margin: 0;
-    color: #333;
-  }
-
-  .event p {
-    margin: 5px 0;
-    color: #666;
-  }
-
-  #addEventButton {
-    width: 100%;
-    transition: background-color 0.3s;
-  }
-
-  #addEventButton:hover {
-    background-color: #0056b3;
-  }
-</style>
-
 <div id="container">
   <div id="eventForm">
-    <div id="eventForm">
-      <form>      
-          <div>
+      <form  #eventForm="ngForm">      
             <input type="file" name="image" (change)="selectImage($event)" />
-          </div>
           <br>
-          
           <div *ngIf="imageUrl">
             <img [src]="imageUrl" alt="Selected Image" style="max-width: 300px;">
           </div>
   
-          <input type="text" [(ngModel)]="eventName" placeholder="Tên Sự Kiện">
-          <textarea [(ngModel)]="eventDescription" placeholder="Mô Tả Sự Kiện"></textarea>
-          <input type="datetime-local" [(ngModel)]="startDate" placeholder="Ngày Bắt Đầu">
-          <input type="datetime-local" [(ngModel)]="endDate" placeholder="Ngày Kết Thúc">
-          <input type="number" [(ngModel)]="vehicleCount" placeholder="Số Lượng Xe">
-          <button (click)="addEvent()">Thêm Sự Kiện</button>
+          <input type="text" placeholder="Tên Sự Kiện" [(ngModel)]="eventName" [ngModelOptions]="{standalone: true}">
+          <textarea placeholder="Mô Tả Sự Kiện" [(ngModel)]="eventDescription" [ngModelOptions]="{standalone: true}">
+          </textarea>
+
+          <mat-form-field>
+            <mat-label>Thời gian sự kiện</mat-label>
+            <input matInput [matDatepicker]="dp3" [(ngModel)]="eventDate" [ngModelOptions]="{standalone: true}">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="dp3"></mat-datepicker-toggle>
+            <mat-datepicker #dp3></mat-datepicker>
+          </mat-form-field>
+
+          <input type="number" placeholder="Số Lượng Xe" [(ngModel)]="vehicleCount" [ngModelOptions]="{standalone: true}">
+          <button (click)="onSubmit()">Thêm Sự Kiện</button>
       </form>
   </div>
-  
-  </div>
-
-  <ul id="eventList">
-      <!-- Danh sách sự kiện sẽ được thêm vào đây bằng JavaScript -->
-      <div>
-        <p>Event Name: {{ eventName }}</p>
-        <p>Event Description: {{ eventDescription }}</p>
-        <p>Start Date: {{ startDate }}</p>
-        <p>End Date: {{ endDate }}</p>
-        <p>Vehicle Count: {{ vehicleCount }}</p>
-        <p>Image URL: {{ imageUrl }}</p>
-      </div>
-      
-  </ul>
 </div>
-
