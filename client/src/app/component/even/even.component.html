@@ -11,7 +11,10 @@
 
 <!-- Form để nhập thông tin -->
 <div id="eventForm">
-  <input type="file" id="imageInput" accept="image/*"> <!-- Thay đổi type từ "url" thành "file" và thêm accept="image/*" để chỉ cho phép chọn các file hình ảnh -->
+  <input type="file" name="image" (change)="selectImage($event)" /> <!-- Thay đổi type từ "url" thành "file" và thêm accept="image/*" để chỉ cho phép chọn các file hình ảnh -->
+  <div *ngIf="imageUrl">
+    <img [src]="imageUrl" alt="Selected Image" style="max-width: 300px;">
+  </div>
   <input type="text" id="eventNameInput" placeholder="Tên Sự Kiện">
   <textarea id="eventDescriptionInput" placeholder="Mô Tả Sự Kiện"></textarea>
   <input type="number" id="vehicleCountInput" placeholder="Số Lượng Xe">
@@ -21,7 +24,8 @@
 
     <input type="datetime-local" id="endDateInput" placeholder="Ngày Kết Thúc" [min]="currentDate">
     
-  <button onclick="addEvent()">Thêm Sự Kiện</button>
+  <!-- <button onclick="addEvent()">Thêm Sự Kiện</button> -->
+  <button type="submit" (click)="onSubmit()">Thêm Sự Kiện</button>
 </div>
 
 <ul id="eventList">
@@ -32,7 +36,7 @@
 </body>
 </html>
 
-
+<!-- 
 <div style="text-align: center">
   <form>      
     <div>
@@ -47,7 +51,7 @@
       <button type="submit" (click)="onSubmit()">Upload</button>
     </div>
   </form>
-</div>
+</div> -->
 
 <hr>
 <!-- <h2 style="text-align: center">Multiple</h2>
