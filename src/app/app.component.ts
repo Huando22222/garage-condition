@@ -1,6 +1,4 @@
 import {
-  AfterViewInit,
-  ChangeDetectorRef,
   Component,
   inject,
   OnInit,
@@ -38,7 +36,6 @@ export class AppComponent implements OnInit {
   private store = inject(Store);
 
   ticket$: Observable<number>;
-  cdRef: any;
   constructor(private zone: NgZone) {
     this.ticket$ = this.store.select('ticket');
   }
