@@ -1,0 +1,9 @@
+<ng-container *ngIf="(user$ | async) !== null; else loggedOutTemplate">
+  <button mat-button>Logout</button>
+</ng-container>
+<p>
+    <!-- ({{ user$.id }}) -->
+</p>
+<ng-template #loggedOutTemplate>
+  <asl-google-signin-button type='standard' size='medium'></asl-google-signin-button>
+</ng-template>

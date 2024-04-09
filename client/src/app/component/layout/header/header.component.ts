@@ -4,26 +4,38 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
+import { GoogleLoginComponent } from '../../google-login/google-login.component';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatMenuModule],
+  imports: [
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
+    AsyncPipe,
+    GoogleSigninButtonModule,
+    CommonModule,
+    GoogleLoginComponent,
+  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-
   constructor(private router: Router) {}
+
   goToNearGarage() {
-    this.router.navigateByUrl('/Near_Garage'); // Điều hướng đến trang có route '/page3'
+    this.router.navigateByUrl('/Near_Garage');
   }
 
   goToHome() {
     this.router.navigateByUrl('/');
   }
   goToEvenPage() {
-    this.router.navigateByUrl('/even'); // Chuyển hướng tới trang "Even"
+    this.router.navigateByUrl('/even');
   }
 }
 
