@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import {
   ProgressBarMode,
@@ -10,6 +10,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 
 import { GarageTimelineComponent } from '../garage-timeline/garage-timeline.component';
+import { AsyncPipe } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-garage-condition',
   standalone: true,
@@ -20,14 +23,40 @@ import { GarageTimelineComponent } from '../garage-timeline/garage-timeline.comp
     MatSliderModule,
     MatProgressBarModule,
     GarageTimelineComponent,
+    AsyncPipe,
   ],
   templateUrl: './garage-condition.component.html',
   styleUrl: './garage-condition.component.scss',
 })
 export class GarageConditionComponent {
-  color: ThemePalette = 'accent';
+  private store = inject(Store);
+
+  ticket$: Observable<number>;
+  ticketValue: number = 0;
+
+  constructor() {
+    this.ticket$ = this.store.select('ticket');
+  }
+
+  value = 0;
+  color: ThemePalette = 'primary';
   mode: ProgressBarMode = 'buffer';
-  value = 50;
+  ngOnInit(): void {
+    this.ticket$.subscribe((ticket) => {
+      // Tính phần trăm
+      this.value = (ticket / 2000) * 100;
+      if (this.value < 50) {
+        this.color = 'primary';
+      } else if (this.value >= 50 && this.value <= 70) {
+        this.color = 'accent';
+      } else {
+        this.color = 'warn';
+      }
+       console.log('Value:', this.value);
+       console.log('Color:', this.color);
+    });
+  }
+
+  // value = 50;
   bufferValue = 75;
-  
 }

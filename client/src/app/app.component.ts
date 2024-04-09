@@ -13,9 +13,6 @@ import { HeaderComponent } from './component/layout/header/header.component';
 // import { Socket } from 'ngx-socket-io';
 // import { SocketService } from './service/socket.service';
 ////////////////
-
-import { select } from '@ngrx/store';
-import { selectTicket } from './store/selectors/campus-ab.selector';
 import { AsyncPipe, CommonModule } from '@angular/common';
 
 import io from 'socket.io-client';
@@ -48,12 +45,12 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.ticket$.subscribe((data) => {
-      this.ticketValue = data;
-    });
+    // this.ticket$.subscribe((data) => {
+    //   this.ticketValue = data;
+    // });
 
     socket.on('garage-campus-AB', (data: number) => {
-      console.log('Received random number from server:', data);
+      // console.log('Received random number from server:', data);
       this.zone.run(() => {
         // Run this inside the Angular zone
         this.store.dispatch(setTicket({ ticket: data }));
