@@ -1,4 +1,3 @@
-const Message = require("../models/Messages");
 const Room = require("../models/Rooms");
 const User = require("../models/Users");
 // function generateRandomRoomName(length) {
