@@ -1,1 +1,26 @@
-<p>even works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event List</title>
+</head>
+<body>
+<h1>Danh sách sự kiện</h1>
+
+<!-- Form để nhập thông tin -->
+<div id="eventForm">
+  <input type="file" id="imageInput" accept="image/*"> <!-- Thay đổi type từ "url" thành "file" và thêm accept="image/*" để chỉ cho phép chọn các file hình ảnh -->
+  <input type="text" id="eventNameInput" placeholder="Tên Sự Kiện">
+  <textarea id="eventDescriptionInput" placeholder="Mô Tả Sự Kiện"></textarea>
+  <input type="number" id="vehicleCountInput" placeholder="Số Lượng Xe">
+  <button onclick="addEvent()">Thêm Sự Kiện</button>
+</div>
+
+<ul id="eventList">
+  <!-- Danh sách sự kiện sẽ được thêm vào đây bằng JavaScript -->
+</ul>
+
+<script src="scripts.js"></script>
+</body>
+</html>
