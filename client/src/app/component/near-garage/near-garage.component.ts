@@ -26,7 +26,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     nearGarages: Array<NearGarage> = [];
     sortBy: string = 'none';
     constructor(private nearGaragesService: NearGaragesService) {
-      console.log("sdasda");
     }
 
     ngOnInit() {
@@ -37,7 +36,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 
 
     private loadNearGarages(): void {
-      console.log('go into fetch');
       this.nearGaragesService.getNearGarages().subscribe({
         next: (result: any) => {
           if (Array.isArray(result.data)) {

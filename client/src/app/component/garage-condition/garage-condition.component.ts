@@ -41,10 +41,12 @@ export class GarageConditionComponent {
   value = 0;
   color: ThemePalette = 'primary';
   mode: ProgressBarMode = 'buffer';
+  bufferValue = 100;
   ngOnInit(): void {
     this.ticket$.subscribe((ticket) => {
       // Tính phần trăm
       this.value = (ticket / 2000) * 100;
+      this.bufferValue = this.value +10
       if (this.value < 50) {
         this.color = 'primary';
       } else if (this.value >= 50 && this.value <= 70) {
@@ -52,11 +54,6 @@ export class GarageConditionComponent {
       } else {
         this.color = 'warn';
       }
-       console.log('Value:', this.value);
-       console.log('Color:', this.color);
     });
   }
-
-  // value = 50;
-  bufferValue = 75;
 }

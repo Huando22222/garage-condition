@@ -34,8 +34,12 @@ export class HeaderComponent {
   goToHome() {
     this.router.navigateByUrl('/');
   }
-  goToEvenPage() {
-    this.router.navigateByUrl('/even');
+  goToEventPage() {
+    this.router.navigateByUrl('/event');
+  }
+
+  goToNewEventPage() {
+    this.router.navigateByUrl('/new-event');
   }
 }
 
