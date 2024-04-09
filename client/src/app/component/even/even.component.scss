@@ -1,23 +1,32 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
 }
 
 h1 {
-  text-align: center;
-  margin-top: 20px;
-  color: #333;
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
 }
 
 #eventForm {
-  background-color: #fff;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 600px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#eventForm table {
+    width: 100%;
+}
+
+#eventForm td {
+    padding: 10px;
+
 }
 
 #eventForm input[type="file"],
@@ -26,63 +35,64 @@ h1 {
 #eventForm input[type="number"],
 #eventForm input[type="datetime-local"],
 #eventForm button {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
 #eventForm button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 #eventForm button:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
 }
 
 ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .event {
-  background-color: #fff;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .event img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-  margin-bottom: 10px;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 .event h2 {
-  margin: 0;
-  color: #333;
+    margin: 0;
+    color: #333;
 }
 
 .event p {
-  margin: 5px 0;
-  color: #666;
+    margin: 5px 0;
+    color: #666;
 }
 
 #addEventButton {
-  width: 100%;
-  transition: background-color 0.3s;
+    width: 100%;
+    transition: background-color 0.3s;
 }
 
 #addEventButton:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
 }
+
