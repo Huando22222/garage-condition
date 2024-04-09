@@ -1,5 +1,17 @@
 <mat-stepper orientation="vertical">
-  <mat-step>
+  <div *ngFor="let item of scheduleData.schedule">
+    <mat-step >
+      <ng-template matStepLabel>{{ item.shift }}: {{ item.time }}</ng-template>
+      <ng-template matStepContent>
+        <p>Content for {{ item.shift }}</p>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </ng-template>
+    </mat-step>
+
+  </div>
+
+  <!-- <mat-step>
     <ng-template matStepLabel>Step 1</ng-template>
     <ng-template matStepContent>
       <p>This content was rendered lazily</p>
@@ -18,6 +30,6 @@
     <ng-template matStepLabel>Step 3</ng-template>
     <p>This content was rendered eagerly</p>
     <button mat-button matStepperPrevious>Back</button>
-  </mat-step>
+  </mat-step> -->
 </mat-stepper>
     

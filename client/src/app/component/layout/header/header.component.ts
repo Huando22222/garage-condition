@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -12,13 +13,14 @@ import { Router } from '@angular/router';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
+
   constructor(private router: Router) {}
   goToNearGarage() {
     this.router.navigateByUrl('/Near_Garage'); // Điều hướng đến trang có route '/page3'
   }
 
-  goToHome(){
-    this.router.navigateByUrl('/'); 
+  goToHome() {
+    this.router.navigateByUrl('/');
   }
   goToEvenPage() {
     this.router.navigateByUrl('/even'); // Chuyển hướng tới trang "Even"

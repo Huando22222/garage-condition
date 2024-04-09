@@ -25,7 +25,6 @@ module.exports = function (io) {
 	const decreaseCampusAB = () => {
 		const randomDecrement = Math.floor(Math.random() * (5 - 1 + 1)) + 1; 
 		campusAB = Math.max(campusAB - randomDecrement, 0); 
-		console.log("Campus AB decrease " + campusAB);
 		io.emit("garage-campus-AB", campusAB);
 	};
 
@@ -37,8 +36,8 @@ module.exports = function (io) {
 
 		socket.on("disconnect", () => {
 			console.log(`disconnect : ${socket.id}` );
-			clearInterval(decrementInterval);
-			clearInterval(interval); 
+			// clearInterval(decrementInterval);
+			// clearInterval(interval); 
 		});
 	});
 
