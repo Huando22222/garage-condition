@@ -6,31 +6,31 @@ module.exports = {
     try {
 		const { owner, message } = req.body;
 		const images = req.file? req.file.filename : "";
+      console.log(images);
+		// const post = new Post({
+		// 	owner: owner,
+		// 	message: message,
+		// 	images: images, 
+		// 	likes: 0,
+    // });
+    // console.log(owner );
+    //   // console.log( "----------------test image ok------------------------");
+    //   console.log(images );
 
-		const post = new Post({
-			owner: owner,
-			message: message,
-			images: images, 
-			likes: 0,
-    });
-    console.log(owner );
-      // console.log( "----------------test image ok------------------------");
-      console.log(images );
-
-      await post
-        .save()
-        .then(() => {
-          // console.log("posted successfully");
+    //   await post
+    //     .save()
+    //     .then(() => {
+    //       // console.log("posted successfully");
         
-        })
-        .catch((err) => console.log(err));
-        const newP = await Post.findOne({owner:owner}).sort({ createdAt: -1 }).populate("owner")
-          // .populate("owner")
-          res.status(200).json({
-             message: "posted successfully", post : newP /////////////////////
+    //     })
+    //     .catch((err) => console.log(err));
+    //     const newP = await Post.findOne({owner:owner}).sort({ createdAt: -1 }).populate("owner")
+    //       // .populate("owner")
+    //       res.status(200).json({
+    //          message: "posted successfully", post : newP /////////////////////
             
-          });
-          // console.log(newP);
+    //       });
+    //       // console.log(newP);
     } catch (error) {
 		console.error(error);
 		res.status(500).json({ message: "Internal Server Error" });
