@@ -17,7 +17,7 @@ import io from 'socket.io-client';
 import { Observable } from 'rxjs';
 
 import { NgZone } from '@angular/core';
-const socket = io('http://localhost:3000');
+const socket = io('https://garage-condition-be.onrender.com/');
 
 @Component({
   selector: 'app-root',

@@ -79,17 +79,19 @@ export class NewEventComponent {
       formData.append('vehicleCount', this.vehicleCount.toString());
     }
 
-    this.http.post<any>('http://localhost:3000/event/new', formData).subscribe(
-      (res: any) => {
-        console.log(res);
-        alert('Sự kiện đã được tạo thành công!');
-        this.resetForm();
-      },
-      (err: any) => {
-        console.error(err);
-        alert('Đã có lỗi xảy ra khi tạo sự kiện!');
-      }
-    );
+    this.http
+      .post<any>('https://garage-condition-be.onrender.com/event/new', formData)
+      .subscribe(
+        (res: any) => {
+          console.log(res);
+          alert('Sự kiện đã được tạo thành công!');
+          this.resetForm();
+        },
+        (err: any) => {
+          console.error(err);
+          alert('Đã có lỗi xảy ra khi tạo sự kiện!');
+        }
+      );
   }
 
   resetForm() {

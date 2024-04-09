@@ -10,12 +10,11 @@ import { NearGarage } from '../interface/near-garage.model'; // Import model
   providedIn: 'root',
 })
 export class NearGaragesService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'https://garage-condition-be.onrender.com/';
 
-  
   constructor(private http: HttpClient) {}
 
-   getNearGarages(){
+  getNearGarages() {
     const dataUrl = `${this.apiUrl}`;
     return this.http.get<Array<NearGarage>>(dataUrl);
   }
