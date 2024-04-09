@@ -5,7 +5,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Event } from '../../interface/event.model';
-import urlImg from '../../config/configs';
+import {Constants} from '../../config/constants';
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-event',
@@ -22,12 +22,10 @@ import { CommonModule } from '@angular/common';
 })
 export class EventComponent implements OnInit {
   listEvents: Array<Event> = [];
-  longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
-  from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
-  originally bred for hunting.`;
+
   constructor(public eventService: EventService) {}
 
-  apiUrlImg: string = urlImg;
+  apiUrlImg: string = Constants.URL_IMG;
   ngOnInit(): void {
     this.loadEvents();
   }

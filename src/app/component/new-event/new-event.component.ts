@@ -7,6 +7,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { FormsModule,FormControl } from '@angular/forms';
+import { Constants } from '../../config/constants';
 // import { BrowserModule } from '@angular/platform-browser';
 // import { FormsModule } from '@angular/forms'; // Import FormsModule
 
@@ -65,6 +66,7 @@ export class NewEventComponent {
 
   onSubmit() {
     const formData = new FormData();
+    console.log(formData);
     if (this.images) {
       formData.append('file', this.images);
     }
@@ -79,19 +81,17 @@ export class NewEventComponent {
       formData.append('vehicleCount', this.vehicleCount.toString());
     }
 
-    this.http
-      .post<any>('https://garage-condition-be.onrender.com/event/new', formData)
-      .subscribe(
-        (res: any) => {
-          console.log(res);
-          alert('Sự kiện đã được tạo thành công!');
-          this.resetForm();
-        },
-        (err: any) => {
-          console.error(err);
-          alert('Đã có lỗi xảy ra khi tạo sự kiện!');
-        }
-      );
+    this.http.post<any>(`${Constants.URL}event/new`, formData).subscribe(
+      (res: any) => {
+        console.log(res);
+        alert('Sự kiện đã được tạo thành công!');
+        this.resetForm();
+      },
+      (err: any) => {
+        console.error(err);
+        alert('Đã có lỗi xảy ra khi tạo sự kiện!');
+      }
+    );
   }
 
   resetForm() {

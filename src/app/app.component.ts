@@ -17,7 +17,8 @@ import io from 'socket.io-client';
 import { Observable } from 'rxjs';
 
 import { NgZone } from '@angular/core';
-const socket = io('https://garage-condition-be.onrender.com/');
+import { Constants } from './config/constants';
+const socket = io(Constants.URL);
 
 @Component({
   selector: 'app-root',
@@ -41,11 +42,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.ticket$.subscribe((data) => {
-    // });
 
     socket.on('garage-campus-AB', (data: number) => {
-      // console.log('Received random number from server:', data);
       this.zone.run(() => {
         // Run this inside the Angular zone
         this.store.dispatch(setTicket({ ticket: data }));

@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { setTicket, reset } from '../../store/actions/campus-ab.action';
 
-export const initialState = 5;
+export const initialState = 800;
 
 export const ticketReducer = createReducer(
   initialState,

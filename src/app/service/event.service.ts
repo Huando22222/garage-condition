@@ -3,17 +3,17 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import { Event } from '../interface/event.model'; // Import model
+import { Constants } from '../config/constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EventService {
-  private apiUrl = 'https://garage-condition-be.onrender.com/event';
 
   constructor(private http: HttpClient) {}
 
   getEvents() {
-    const dataUrl = `${this.apiUrl}`;
+    const dataUrl = `${Constants.URL}event`;
     return this.http.get<Array<Event>>(dataUrl);
   }
 }
