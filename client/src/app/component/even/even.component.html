@@ -11,6 +11,7 @@
 
 <!-- Form để nhập thông tin -->
 <div id="eventForm">
+  <form>
   <input type="file" name="image" (change)="selectImage($event)" /> <!-- Thay đổi type từ "url" thành "file" và thêm accept="image/*" để chỉ cho phép chọn các file hình ảnh -->
   <div *ngIf="imageUrl">
     <img [src]="imageUrl" alt="Selected Image" style="max-width: 300px;">
@@ -26,6 +27,7 @@
     
   <!-- <button onclick="addEvent()">Thêm Sự Kiện</button> -->
   <button type="submit" (click)="onSubmit()">Thêm Sự Kiện</button>
+</form>
 </div>
 
 <ul id="eventList">

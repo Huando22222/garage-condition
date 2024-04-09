@@ -6,6 +6,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {provideNativeDateAdapter} from '@angular/material/core';
+// import { BrowserModule } from '@angular/platform-browser';
+// import { FormsModule } from '@angular/forms'; // Import FormsModule
+
 @Component({
   selector: 'app-even',
   standalone: true,
@@ -20,13 +23,14 @@ export class EVENComponent {
   currentDate: string;
   imageUrl: string | null = null;
   multipleImages = [];
-  minDate: Date;
-  maxDate: Date;
- 
-  constructor(private http: HttpClient) {
+  // eventName: string | undefined;
+  // eventDescription: string | undefined;
+  // startDate: string | undefined;
+  // endDate: string | undefined;
+  // vehicleCount: string | undefined;
+
+  constructor() {
     const currentYear = new Date().getFullYear();
-    this.minDate = new Date(currentYear - 20, 0, 1);
-    this.maxDate = new Date(currentYear + 1, 11, 31);
     this.currentDate = new Date().toISOString().slice(0, 16);
     
   }
@@ -57,15 +61,24 @@ export class EVENComponent {
     if (this.images) {
       formData.append('file', this.images);
     }
+    
 
-    this.http.post<any>('http://localhost:3000/post/new', formData).subscribe(
-      (res: any) => console.log(res),
-      (err: any) => {
-        console.log(err);
-        console.log('đasaderr');
-      }
-    );
+    // formData.append('event_name', this.eventName!);
+    // formData.append('description', this.eventDescription!);
+    // formData.append('start_datetime', this.startDate!);
+    // formData.append('end_datetime', this.endDate!);
+    // formData.append('number_of_vehicle', this.vehicleCount!);
+
+  
+    // this.http.post<any>('http://localhost:3000/event/new', formData).subscribe(
+    //   (res: any) => console.log(res),
+    //   (err: any) => {
+    //     console.log(err);
+    //     console.log('đasaderr');
+    //   }
+    // );
   }
+  
 
   // onMultipleSubmit() {
   //   const formData = new FormData();

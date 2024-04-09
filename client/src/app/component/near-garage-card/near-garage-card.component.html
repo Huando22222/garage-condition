@@ -13,6 +13,13 @@
         {{ nearGarage?.description }}
       </p>
     </mat-card-content>
+    <p></p>
+
+    <p>
+    <mat-progress-bar mode="determinate" value= '{{ calculatePercentage() }}' ></mat-progress-bar>
+  </p>
+  <mat-card-content> {{ nearGarage?.number }}/1000
+  </mat-card-content>
     <mat-card-actions>
         <button mat-button (click)="goToMarkLocation()">Go To</button> 
 
