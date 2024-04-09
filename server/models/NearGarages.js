@@ -7,7 +7,8 @@ const nearGarages = new mongoose.Schema(
         address: {type: "string" ,required: true},
         description: {type: "string" ,required: true},
         google_maps_link: {type: "string" ,required: true},
-        directions_link: {type: "string" ,required: true}
+        directions_link: {type: "string" ,required: true},
+        number: {type: Number ,required: true}
     }
 );
 

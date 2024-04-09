@@ -28,6 +28,13 @@
     ngOnInit() {
       this.goToLocationOnMap();
       this.loadNearGarages();
+      this.getNearGarages();
+    }
+    getNearGarages(): void {
+      this.nearGaragesService.getNearGarages().subscribe((data: any[]) => {
+        // Sắp xếp mảng nearGarages theo nearGarage?.number tăng dần
+        this.nearGarages = data.sort((a, b) => (a.number < b.number) ? 1 : -1);
+      });
     }
 
     private loadNearGarages(): void {

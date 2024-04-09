@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EVENComponent } from './even.component';
+import { EVENComponent } from './EVENComponent';
 
 describe('EVENComponent', () => {
   let component: EVENComponent;
