@@ -13,7 +13,7 @@ export class EventService {
   
   constructor(private http: HttpClient) {}
 
-   getNearGarages(){
+   getEvents(){
     const dataUrl = `${this.apiUrl}`;
     return this.http.get<Array<Event>>(dataUrl);
   }

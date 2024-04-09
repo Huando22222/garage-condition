@@ -1,0 +1,16 @@
+<div class="card-event" *ngFor="let event of listEvents">
+    <mat-card >
+        <mat-card-header>
+            <mat-card-title-group>
+            <mat-card-title>{{ event.eventName }}</mat-card-title>
+            <mat-card-subtitle>{{ event.eventDate | date:'shortDate' }}</mat-card-subtitle>
+            <img mat-card-lg-image [src]="apiUrlImg + event.imageUrl" alt="{{ event.eventDescription }}" >
+            </mat-card-title-group> 
+            </mat-card-header>
+            <mat-card-content>
+            {{ event.eventDescription }}
+            <br>
+            Vehicle Count: {{ event.vehicleCount }}
+        </mat-card-content>
+    </mat-card>
+</div>

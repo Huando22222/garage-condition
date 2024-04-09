@@ -22,10 +22,10 @@ import { FormsModule,FormControl } from '@angular/forms';
     MatFormFieldModule,
     FormsModule,
   ],
-  templateUrl: './even.component.html',
-  styleUrl: './even.component.scss',
+  templateUrl: './new-event.component.html',
+  styleUrl: './new-event.component.scss',
 })
-export class EVENComponent {
+export class NewEventComponent {
   // currentDate: string;
   // multipleImages = [];
 

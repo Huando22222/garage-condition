@@ -6,7 +6,7 @@ module.exports = {
      		console.log(event.length);
 			res.status(200).json({
 				message: "get event successfully",
-				data: event[0].imageUrl,
+				data: event,
 			});
 		} catch (error) {
 			console.error(error);
