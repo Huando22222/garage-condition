@@ -14,17 +14,27 @@ h1 {
 #eventForm {
     background-color: #fff;
     padding: 20px;
-    margin-bottom: 20px;
+    margin: 20px auto;
+    max-width: 600px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#eventForm table {
+    width: 100%;
+}
+
+#eventForm td {
+    padding: 10px;
 }
 
 #eventForm input[type="file"],
 #eventForm input[type="text"],
 #eventForm textarea,
 #eventForm input[type="number"],
-#eventForm input[type="datetime-local"] {
-    width: 100%;
+#eventForm input[type="datetime-local"],
+#eventForm button {
+    width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -33,13 +43,9 @@ h1 {
 }
 
 #eventForm button {
-    display: block;
-    width: 100%;
-    padding: 10px;
     background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -51,11 +57,7 @@ h1 {
 ul {
     list-style-type: none;
     padding: 0;
-}
-
-#eventList {
     margin: 0;
-    padding: 0;
 }
 
 .event {
@@ -82,4 +84,13 @@ ul {
 .event p {
     margin: 5px 0;
     color: #666;
+}
+
+#addEventButton {
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+#addEventButton:hover {
+    background-color: #0056b3;
 }
