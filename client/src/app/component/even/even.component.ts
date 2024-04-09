@@ -2,19 +2,34 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {provideNativeDateAdapter} from '@angular/material/core';
 @Component({
   selector: 'app-even',
   standalone: true,
-  imports: [HttpClientModule, CommonModule],
+  providers: [provideNativeDateAdapter()],
+  imports: [HttpClientModule, CommonModule,MatDatepickerModule,MatInputModule,MatFormFieldModule],
   templateUrl: './even.component.html',
   styleUrl: './even.component.scss',
 })
 export class EVENComponent {
   title = 'fileUpload';
   images: File | undefined;
+  currentDate: string;
   imageUrl: string | null = null;
   multipleImages = [];
-  constructor(private http: HttpClient) {}
+  minDate: Date;
+  maxDate: Date;
+ 
+  constructor(private http: HttpClient) {
+    const currentYear = new Date().getFullYear();
+    this.minDate = new Date(currentYear - 20, 0, 1);
+    this.maxDate = new Date(currentYear + 1, 11, 31);
+    this.currentDate = new Date().toISOString().slice(0, 16);
+    
+  }
 
   ngOnInit() {}
 
@@ -30,7 +45,7 @@ export class EVENComponent {
       };
     }
   }
-
+ 
   selectMultipleImage(event: any) {
     if (event.target?.files.length > 0) {
       this.multipleImages = event.target.files;

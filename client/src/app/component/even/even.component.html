@@ -15,6 +15,12 @@
   <input type="text" id="eventNameInput" placeholder="Tên Sự Kiện">
   <textarea id="eventDescriptionInput" placeholder="Mô Tả Sự Kiện"></textarea>
   <input type="number" id="vehicleCountInput" placeholder="Số Lượng Xe">
+  
+  <input type="datetime-local" id="startDateInput" placeholder="Ngày Bắt Đầu" [min]="currentDate">
+
+
+    <input type="datetime-local" id="endDateInput" placeholder="Ngày Kết Thúc" [min]="currentDate">
+    
   <button onclick="addEvent()">Thêm Sự Kiện</button>
 </div>
 
