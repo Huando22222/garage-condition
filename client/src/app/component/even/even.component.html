@@ -8,19 +8,31 @@
 <body>
 <h1>Danh sách sự kiện</h1>
 
-<!-- Form để nhập thông tin -->
 <div id="eventForm">
-  <input type="file" id="imageInput" accept="image/*"> <!-- Thay đổi type từ "url" thành "file" và thêm accept="image/*" để chỉ cho phép chọn các file hình ảnh -->
-  <input type="text" id="eventNameInput" placeholder="Tên Sự Kiện">
-  <textarea id="eventDescriptionInput" placeholder="Mô Tả Sự Kiện"></textarea>
-  <input type="number" id="vehicleCountInput" placeholder="Số Lượng Xe">
-  <button onclick="addEvent()">Thêm Sự Kiện</button>
+    <input type="file" id="imageInput" accept="image/*" onchange="previewImage(event)">
+    <img id="preview" src="#" alt="Preview Image" style="display:none; max-width: 200px; margin-top: 10px;">
+    <input type="text" id="eventNameInput" placeholder="Tên Sự Kiện">
+    <textarea id="eventDescriptionInput" placeholder="Mô Tả Sự Kiện"></textarea>
+    <input type="datetime-local" id="startDateInput" placeholder="Ngày Bắt Đầu">
+    <input type="datetime-local" id="endDateInput" placeholder="Ngày Kết Thúc">
+    <input type="number" id="vehicleCountInput" placeholder="Số Lượng Xe">
+    <button onclick="addEvent()">Thêm Sự Kiện</button>
 </div>
 
 <ul id="eventList">
-  <!-- Danh sách sự kiện sẽ được thêm vào đây bằng JavaScript -->
+    <!-- Danh sách sự kiện sẽ được thêm vào đây bằng JavaScript -->
 </ul>
 
-<script src="scripts.js"></script>
+<script>
+function previewImage(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+        var preview = document.getElementById('preview');
+        preview.src = reader.result;
+        preview.style.display = "block";
+    }
+    reader.readAsDataURL(event.target.files[0]);
+}
+</script>
 </body>
 </html>
