@@ -8,12 +8,11 @@ import { Event } from '../interface/event.model'; // Import model
   providedIn: 'root',
 })
 export class EventService {
-  private apiUrl = 'http://localhost:3000/event';
+  private apiUrl = 'https://garage-condition-be.onrender.com/event';
 
-  
   constructor(private http: HttpClient) {}
 
-   getEvents(){
+  getEvents() {
     const dataUrl = `${this.apiUrl}`;
     return this.http.get<Array<Event>>(dataUrl);
   }

@@ -11,7 +11,7 @@ export class SocketService {
   public data$ = this.dataSubject.asObservable(); // Observable để subscribe trong các components
 
   constructor() {
-    this.socket = io('http://localhost:3000');
+    this.socket = io('https://garage-condition-be.onrender.com/');
 
     this.socket.on('garage-campus-AB', (data: number) => {
       this.dataSubject.next(data); // Cập nhật dữ liệu trong BehaviorSubject

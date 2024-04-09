@@ -1,2 +1,2 @@
-const urlImg: string = 'http://localhost:3000//images/';
+const urlImg: string = 'https://garage-condition-be.onrender.com/images/';
 export default urlImg;
