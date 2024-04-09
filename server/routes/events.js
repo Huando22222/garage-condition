@@ -18,7 +18,11 @@ const upload = multer({ storage });
 
 router.post("/new", upload.single("file"), EventController.NewEvent);
 // router.get("/", express.static(path.join(__dirname, "../public/images")), PostsController.GetPost);
-router.get("/", EventController.GetEvent);
+router.get(
+	"/",
+	// express.static(path.join(__dirname, "../public/images")),
+	EventController.GetEvent
+);
 
 
 module.exports = router;
