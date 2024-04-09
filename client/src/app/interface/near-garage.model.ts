@@ -6,4 +6,5 @@ export interface NearGarage {
     description: string;
     google_maps_link: string;
     directions_link: string;
+    number: number;
 }

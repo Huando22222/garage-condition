@@ -7,15 +7,13 @@
         <button mat-button (click)="goToEvenPage()">Even Now</button>
         <button mat-button (click)="goToNearGarage()">Nhà xe xung quanh</button>
         <span class="spacer"></span>
-        <button mat-icon-button class="menu-icon" aria-label="Menu" [matMenuTriggerFor]="menu">
-          <mat-icon>menu</mat-icon>
-        </button>
-
-        <mat-menu #menu="matMenu" class="custom-menu">
+        <button mat-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
+        <mat-menu #menu="matMenu" >
           <button mat-menu-item>Item 1</button>
           <button mat-menu-item>Item 2</button>
-          <button mat-menu-item>Item 3</button>
+          <app-google-login></app-google-login>
         </mat-menu>
+
       </mat-toolbar-row>
     </mat-toolbar>
   </p>

@@ -2,12 +2,17 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-garage-timeline',
   standalone: true,
-  imports: [MatStepperModule, MatButtonModule, CommonModule],
+  imports: [
+    MatStepperModule,
+    MatButtonModule,
+    CommonModule,
+    MatProgressBarModule,
+  ],
   templateUrl: './garage-timeline.component.html',
   styleUrl: './garage-timeline.component.scss',
 })

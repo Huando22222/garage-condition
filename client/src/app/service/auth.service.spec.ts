@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NearGaragesService } from './near-garage.service';
+import { AuthService } from './auth.service';
 
-describe('NearGarageService', () => {
-  let service: NearGaragesService;
+describe('AuthService', () => {
+  let service: AuthService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(NearGaragesService);
+    service = TestBed.inject(AuthService);
   });
 
   it('should be created', () => {

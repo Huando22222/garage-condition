@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EVENComponent } from './EVENComponent';
+import { GoogleLoginComponent } from './google-login.component';
 
-describe('EVENComponent', () => {
-  let component: EVENComponent;
-  let fixture: ComponentFixture<EVENComponent>;
+describe('GoogleLoginComponent', () => {
+  let component: GoogleLoginComponent;
+  let fixture: ComponentFixture<GoogleLoginComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EVENComponent]
+      imports: [GoogleLoginComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(EVENComponent);
+    fixture = TestBed.createComponent(GoogleLoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
