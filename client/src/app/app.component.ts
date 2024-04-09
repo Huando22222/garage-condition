@@ -38,7 +38,6 @@ export class AppComponent implements OnInit {
   private store = inject(Store);
 
   ticket$: Observable<number>;
-  ticketValue: number = 0;
   cdRef: any;
   constructor(private zone: NgZone) {
     this.ticket$ = this.store.select('ticket');
@@ -46,7 +45,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     // this.ticket$.subscribe((data) => {
-    //   this.ticketValue = data;
     // });
 
     socket.on('garage-campus-AB', (data: number) => {
